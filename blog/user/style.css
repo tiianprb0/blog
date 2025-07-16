@@ -1,0 +1,371 @@
+/* CSS dasar dari template-post.html untuk konsistensi */
+:root {
+    --body-bg: #f8f9f7; /* Background terang */
+    --container-bg: #ffffff; /* Container putih */
+    --text-on-light: #2c3e50; /* Warna teks gelap untuk kontras */
+    --input-border-color-light: #ddd; /* Garis input terang */
+    --input-focus-color-light: #7E906A; /* Garis fokus hijau */
+    --button-bg-light: #7E906A; /* Tombol hijau */
+    --button-hover-bg-light: #6A7D59; /* Tombol hover hijau gelap */
+    --link-color-light: #7E906A; /* Link hijau */
+    --gray-on-light: #7f8c8d; /* Abu-abu gelap untuk label */
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    line-height: 1.6;
+    color: var(--text-on-light); /* Warna teks default pada body */
+    background-color: var(--body-bg); /* Background body terang */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Konten mulai dari atas */
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.container {
+    background-color: var(--container-bg); /* Container putih */
+    padding: 20px; /* Padding lebih kecil sesuai desain */
+    padding-top: 0; /* Hapus padding atas untuk header */
+    border-radius: 0; /* Hapus border radius agar sesuai desain */
+    width: 100%;
+    max-width: 600px; /* Lebar container disesuaikan */
+    text-align: center;
+    position: relative;
+    box-shadow: none; /* Hapus shadow */
+}
+
+.header-icons {
+    display: flex;
+    justify-content: space-between; /* Untuk menempatkan ikon kiri dan kanan */
+    align-items: center;
+    padding: 15px 0; /* Padding vertikal untuk header */
+    color: var(--text-on-light);
+    font-size: 24px; /* Ukuran ikon */
+    width: 100%;
+    margin-bottom: 20px; /* Jarak ke konten profil */
+}
+
+.header-icon-left {
+    display: none; /* Dihapus dari HTML, pastikan tersembunyi */
+}
+
+.header-icon-right {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Jarak antar ikon di kanan */
+    margin-left: auto; /* Pindahkan semua ikon ke kanan */
+}
+
+.header-icon-right svg {
+    cursor: pointer;
+}
+
+.blog-link-btn, .hamburger-menu-btn { /* Gaya untuk tombol ikon blog dan hamburger */
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    color: var(--text-on-light);
+    font-size: 24px;
+    display: flex; /* Untuk pusatkan SVG */
+    align-items: center;
+    justify-content: center;
+}
+
+/* Tombol logout lama di top-bar dihapus */
+.top-bar {
+    display: none;
+}
+
+.profile-main-layout { /* Mengganti profile-main-content untuk tata letak baru */
+    display: flex;
+    justify-content: space-between; /* Teks kiri, avatar kanan */
+    align-items: flex-start; /* Rata atas */
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.profile-text-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Rata kiri */
+    flex-grow: 1; /* Mengisi ruang yang tersedia */
+    margin-right: 20px; /* Jarak ke avatar */
+}
+
+.display-name {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 38px;
+    color: var(--text-on-light);
+    margin: 0;
+    line-height: 1.2;
+}
+
+.username {
+    font-size: 18px;
+    color: var(--gray-on-light);
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+.profile-avatar-wrapper {
+    flex-shrink: 0; /* Mencegah avatar menyusut */
+}
+
+.profile-avatar {
+    width: 100px; /* Ukuran avatar lebih kecil sesuai desain */
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: none; /* Hapus border */
+}
+
+.bio-display { /* Gaya untuk bio */
+    font-size: 16px;
+    color: var(--text-on-light);
+    line-height: 1.6;
+    margin-top: 20px; /* Jarak dari username */
+    margin-bottom: 0;
+    text-align: left;
+}
+
+/* Umur tidak ditampilkan di UI utama */
+.age-display {
+    display: none;
+}
+
+.profile-buttons {
+    display: flex;
+    justify-content: flex-start; /* Tombol rata kiri */
+    gap: 15px;
+    margin-top: 30px; /* Jarak dari bio */
+    margin-bottom: 20px; /* Jarak dari logout jika ada */
+}
+
+.btn {
+    padding: 10px 20px; /* Padding tombol lebih kecil */
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-size: 16px; /* Ukuran font tombol lebih kecil */
+    border: 1px solid var(--input-border-color-light); /* Border tombol */
+    background-color: transparent; /* Background transparan */
+    color: var(--text-on-light); /* Warna teks tombol */
+    box-sizing: border-box;
+    flex-grow: 1;
+    max-width: 180px; /* Batasi lebar tombol */
+}
+
+.btn-primary { /* Digunakan di form edit inline */
+    background-color: var(--button-bg-light);
+    color: white;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: var(--button-hover-bg-light);
+}
+
+.btn-edit-profile,
+.btn-share-profile {
+    /* Menggunakan gaya .btn default */
+}
+
+.btn-edit-profile:hover,
+.btn-share-profile:hover {
+    background-color: var(--input-border-color-light); /* Hover background */
+}
+
+/* Inline Edit Mode Styles */
+#profile-edit-mode {
+    margin-top: 20px; /* Jarak dari header/container */
+    text-align: left;
+}
+
+#profile-edit-mode .section-title {
+    text-align: left; /* Judul edit profile rata kiri */
+    margin-bottom: 25px;
+}
+
+#profile-edit-mode .form-group {
+    margin-bottom: 15px;
+}
+
+#profile-edit-mode .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: var(--gray-on-light);
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+#profile-edit-mode input[type="text"],
+#profile-edit-mode input[type="url"],
+#profile-edit-mode input[type="date"],
+#profile-edit-mode textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--input-border-color-light);
+    border-radius: 6px;
+    font-size: 16px;
+    box-sizing: border-box;
+    background-color: #fcfcfc;
+    color: var(--text-on-light);
+    transition: border-color 0.3s;
+}
+
+#profile-edit-mode input[type="text"]:focus,
+#profile-edit-mode input[type="url"]:focus,
+#profile-edit-mode input[type="date"]:focus,
+#profile-edit-mode textarea:focus {
+    outline: none;
+    border-color: var(--input-focus-color-light);
+}
+
+#profile-edit-mode textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+#profile-edit-mode input::placeholder,
+#profile-edit-mode textarea::placeholder {
+    color: var(--gray-on-light);
+}
+
+#profile-edit-mode .btn-primary,
+#profile-edit-mode .btn-secondary {
+    width: auto; /* Tombol tidak mengisi lebar penuh */
+    display: inline-block; /* Agar sebaris */
+    margin-right: 10px; /* Jarak antar tombol */
+    max-width: none; /* Hapus batasan max-width */
+}
+
+/* Modal Styles (Hamburger Menu Modal) */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content-small { /* Untuk modal hamburger menu */
+    background-color: var(--container-bg);
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 300px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.btn-logout-modal {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-logout-modal:hover {
+    background-color: #c0392b;
+}
+
+
+/* Responsive adjustments: Apply desktop layout to mobile, scale down */
+@media (max-width: 600px) {
+    body {
+        padding: 0;
+    }
+    .container {
+        padding: 15px; /* Padding lebih kecil di mobile */
+        padding-top: 0;
+        border-radius: 0;
+        min-height: 100vh;
+        max-width: 100%;
+        /* display: flex; flex-direction: column; justify-content: flex-start; */ /* Ini sudah diatur di body */
+    }
+    .header-icons {
+        padding: 10px 0;
+        font-size: 20px;
+        margin-bottom: 15px;
+    }
+    /* top-bar (logout lama) sudah display none */
+
+    .profile-main-layout {
+        flex-direction: row; /* Tetap sebaris (desktop layout) */
+        align-items: flex-start; /* Tetap rata atas */
+        gap: 15px; /* Kurangi jarak */
+        margin-bottom: 15px;
+    }
+    .profile-text-content {
+        flex-grow: 1;
+        margin-right: 0; /* Hapus margin kanan */
+        align-items: flex-start; /* Tetap rata kiri */
+        text-align: left; /* Tetap rata kiri */
+    }
+    .profile-avatar-wrapper {
+        flex-shrink: 0;
+    }
+    .profile-avatar {
+        width: 80px; /* Avatar lebih kecil di mobile */
+        height: 80px;
+    }
+    .display-name {
+        font-size: 28px; /* Skala font Display Name */
+    }
+    .username {
+        font-size: 16px; /* Skala font Username */
+    }
+    .bio-display {
+        font-size: 15px; /* Skala font Bio */
+        margin-top: 15px;
+    }
+    .profile-buttons {
+        flex-direction: row; /* Tetap sebaris */
+        gap: 10px;
+        margin-top: 20px;
+    }
+    .btn, .btn-logout, .btn-edit-profile, .btn-share-profile, .btn-secondary, .btn-logout-modal {
+        padding: 8px 15px;
+        font-size: 14px;
+        max-width: none; /* Hapus max-width agar flex-grow bekerja */
+    }
+    #profile-edit-mode .btn-primary,
+    #profile-edit-mode .btn-secondary {
+        padding: 8px 15px; /* Padding lebih kecil untuk tombol di form edit mobile */
+        font-size: 14px;
+    }
+    .modal-content {
+        padding: 20px;
+    }
+    .modal-content-small {
+        padding: 15px;
+    }
+}
