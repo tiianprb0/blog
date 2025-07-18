@@ -1,0 +1,345 @@
+/* CSS dasar dari template-post.html untuk konsistensi */
+:root {
+    --body-bg: #2D4B42; /* Warna background body sesuai permintaan (sama dengan container) */
+    --container-bg: #2D4B42; /* Hijau gelap dari gambar untuk container form */
+    --text-on-dark: #E0F2F1; /* Warna teks/ikon terang untuk kontras */
+    --input-border-color: rgba(255, 255, 255, 0.5); /* Garis putus-putus putih */
+    --input-focus-color: white; /* Garis putih saat fokus */
+    --button-bg: #597D70; /* Warna tombol, sedikit lebih terang dari container */
+    --button-hover-bg: #4A6A60; /* Warna tombol saat hover */
+    --link-color: var(--text-on-dark); /* Warna link */
+    --gray-on-dark: rgba(255, 255, 255, 0.7); /* Warna abu-abu terang untuk label */
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    line-height: 1.6;
+    color: var(--text-on-dark); /* Warna teks default pada container */
+    background-color: var(--body-bg); /* Background body */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    background-color: var(--container-bg); /* Latar belakang hijau gelap untuk container */
+    padding: 40px; /* Padding tetap ada untuk visual seperti gambar */
+    border-radius: 20px;
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+}
+
+.header-section {
+    /* Flexbox untuk menata logo, judul, deskripsi */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Rata kiri */
+    margin-bottom: 30px; /* Jarak ke form */
+}
+
+.header-section.hidden {
+    display: none;
+}
+
+.main-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 55px; /* Ukuran font 55px */
+    line-height: 55px; /* Line height 55px */
+    color: white; /* Warna putih */
+    margin-bottom: 5px; /* Jarak ke deskripsi */
+    text-align: left; /* Rata kiri */
+}
+
+.main-description {
+    font-size: 18px; /* Ukuran lebih besar */
+    color: var(--text-on-dark); /* Warna teks terang */
+    margin-bottom: 0; /* Jarak ke logo sudah diatur di .header-section */
+    text-align: left; /* Rata kiri */
+}
+
+.logo {
+    margin-bottom: 20px; /* Jarak antara logo dan main-title */
+}
+
+.logo img {
+    width: 80px; /* Ukuran logo */
+    height: 80px; /* Ukuran logo */
+    border-radius: 50%; /* Membuat gambar bulat */
+    object-fit: cover; /* Memastikan gambar mengisi area tanpa distorsi */
+    display: block; /* Menghilangkan spasi bawah default img */
+}
+
+h2 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700;
+    color: var(--text-on-dark); /* Warna teks H2 */
+    font-size: 24px;
+    margin-bottom: 25px;
+    text-align: left; /* Rata kiri untuk judul form register */
+}
+
+.form-group {
+    margin-bottom: 25px;
+    text-align: left;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: var(--gray-on-dark); /* Warna label yang lebih terang */
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px dashed var(--input-border-color); /* Garis bawah putus-putus */
+    padding-bottom: 5px;
+    transition: border-color 0.3s;
+}
+
+.input-wrapper:focus-within {
+    border-bottom: 1px solid var(--input-focus-color); /* Garis solid saat fokus */
+}
+
+/* Mengatasi warna autofill */
+.form-group input:-webkit-autofill,
+.form-group input:-webkit-autofill:hover,
+.form-group input:-webkit-autofill:focus,
+.form-group input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0px 1000px var(--body-bg) inset !important; /* Warna background body */
+    -webkit-text-fill-color: var(--text-on-dark) !important; /* Warna teks */
+    caret-color: var(--text-on-dark) !important; /* Warna kursor */
+}
+
+
+.input-wrapper .icon {
+    color: var(--gray-on-dark); /* Warna ikon */
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"] {
+    flex-grow: 1;
+    padding: 8px 0;
+    border: none;
+    background: transparent;
+    font-size: 16px;
+    box-sizing: border-box;
+    color: var(--text-on-dark); /* Warna teks input */
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="password"]:focus {
+    outline: none;
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 15px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-size: 18px;
+    border: none;
+    margin-top: 30px;
+    box-sizing: border-box; /* Pastikan padding tidak membuat lebar melebihi 100% */
+}
+
+.btn-primary {
+    background-color: var(--button-bg); /* Warna tombol */
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--button-hover-bg);
+}
+
+.btn-secondary { /* Gaya baru untuk tombol kembali ke login di register form */
+    background-color: transparent;
+    color: var(--link-color);
+    border: 1px solid var(--link-color);
+    margin-top: 20px;
+}
+
+.btn-secondary:hover {
+    background-color: var(--link-color);
+    color: var(--container-bg);
+}
+
+.message {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 6px;
+    font-weight: 500;
+    display: none;
+    text-align: left;
+    color: var(--dark); /* Kembali ke dark untuk pesan agar terbaca di background terang */
+    background-color: #f8f9f7; /* Background terang untuk pesan */
+}
+
+.message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.switch-form-link {
+    display: block;
+    margin-top: 25px;
+    font-size: 15px;
+    color: var(--link-color); /* Warna link */
+    text-decoration: none;
+    transition: color 0.3s;
+    font-weight: 500;
+}
+
+.switch-form-link:hover {
+    color: white;
+}
+
+.forgot-password-link {
+    display: block;
+    text-align: right;
+    font-size: 14px;
+    color: var(--gray-on-dark); /* Warna link forgot password */
+    text-decoration: none;
+    margin-top: -10px;
+    margin-bottom: 20px;
+    transition: color 0.3s;
+}
+
+.forgot-password-link:hover {
+    color: white;
+}
+
+/* Password visibility toggle */
+.password-group .toggle-password {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: var(--gray-on-dark); /* Warna ikon mata */
+    font-size: 18px;
+    padding: 5px;
+}
+
+/* Password strength indicator - sekarang terlihat */
+.password-strength-indicator {
+    display: block; /* Mengubah dari none menjadi block */
+    margin-top: 10px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.2); /* Latar belakang bar kekuatan */
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+}
+
+.strength-bar {
+    height: 100%;
+    width: 0;
+    border-radius: 5px;
+    transition: width 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+.strength-bar.weak {
+    background-color: #e74c3c; /* Merah */
+}
+
+.strength-bar.medium {
+    background-color: #f39c12; /* Oranye */
+}
+
+.strength-bar.strong {
+    background-color: #27ae60; /* Hijau */
+}
+
+#strength-text {
+    display: block;
+    margin-top: 5px;
+    font-size: 12px;
+    color: var(--gray-on-dark); /* Warna teks kekuatan */
+    text-align: right;
+}
+
+#strength-text.weak {
+    color: #e74c3c;
+}
+
+#strength-text.medium {
+    color: #f39c12;
+}
+
+#strength-text.strong {
+    color: #27ae60;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    body {
+        padding: 0;
+    }
+    .container {
+        padding: 30px 20px;
+        margin: 0;
+        border-radius: 0;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .main-title {
+        font-size: 55px; /* Ukuran font 55px untuk mobile */
+        line-height: 55px; /* Line height 55px untuk mobile */
+    }
+    .main-description {
+        font-size: 15px; /* Ukuran font 15px untuk mobile */
+    }
+    .logo img {
+        width: 60px; /* Ukuran logo lebih kecil di mobile */
+        height: 60px;
+    }
+    .form-group label {
+        font-size: 13px;
+    }
+    .form-group input {
+        font-size: 15px;
+    }
+    .btn {
+        padding: 12px 15px;
+        font-size: 16px;
+    }
+    .switch-form-link {
+        font-size: 14px;
+    }
+    .forgot-password-link {
+        font-size: 13px;
+    }
+    .toggle-password {
+        font-size: 16px;
+    }
+}
