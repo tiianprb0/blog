@@ -6,17 +6,24 @@
     --gray: #7f8c8d;
     --warm-light: #f1f4ec;
     --warm-dark: #7E906A;
-    --border: #eaeaea;
-    --red-error: #e74c3c;
-    --green-success: #27ae60;
-    --orange-draft: #f39c12;
+    --border: #ddd; /* Diperbarui sesuai /i/style.css */
+    --green-success: #7e906a; /* Diperbarui sesuai perubahan mandiri */
+    --orange-draft: #ecdfcc; /* Diperbarui sesuai perubahan mandiri */
+}
+
+/* Mengatur box-sizing secara global untuk konsistensi model kotak */
+html {
+    box-sizing: border-box;
+}
+*, *::before, *::after {
+    box-sizing: inherit;
 }
 
 body {
     font-family: 'Plus Jakarta Sans', sans-serif;
     line-height: 1.6;
     color: var(--dark);
-    background-color: #fafafa;
+    background-color: #fff; /* Diperbarui sesuai /i/style.css */
     margin: 0;
     padding: 0;
 }
@@ -28,9 +35,13 @@ body {
 }
 
 .dashboard-header {
-    margin-bottom: 40px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid var(--border);
+    margin-bottom: 20px; /* Kurangi margin bawah karena title dan actions terpisah */
+    padding: 20px 0; /* Diperbarui sesuai /i/style.css */
+    border-bottom: 1px solid var(--border); /* Diperbarui sesuai /i/style.css */
+    display: flex; /* Menggunakan flexbox */
+    justify-content: space-between; /* Memisahkan tombol back ke kiri dan profil ke kanan */
+    align-items: center; /* Pusatkan item secara vertikal */
+    gap: 15px; /* Jarak antara profil dan tombol back */
 }
 
 .dashboard-title {
@@ -38,45 +49,138 @@ body {
     font-weight: 700;
     font-size: 32px;
     color: var(--dark);
-    margin: 0 0 20px 0;
+    margin: 0 0 10px 0; /* Memberi margin bawah sedikit untuk subtitle */
+    width: 100%; /* Memastikan judul mengambil lebar penuh */
 }
+
+.dashboard-subtitle { /* Gaya baru untuk subtitle */
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 16px;
+    color: var(--gray);
+    margin: 0 0 20px 0; /* Margin bawah untuk memisahkan dari actions */
+    width: 100%; /* Memastikan subtitle mengambil lebar penuh */
+    line-height: 1.5;
+}
+
+.header-right-section {
+    /* Kelas ini dihapus dari index.php, jadi tidak diperlukan lagi di sini */
+    /* Namun, jika ada elemen lain yang ingin diatur di kanan, bisa pakai kelas ini */
+}
+
+.user-profile-link { /* Gaya untuk tautan profil */
+    text-decoration: none; /* Menghilangkan garis bawah */
+    color: inherit; /* Mengambil warna teks dari parent */
+}
+
+.user-profile-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-direction: row-reverse; /* Memindahkan teks nama ke kiri gambar */
+}
+
+.profile-image-header {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--primary);
+}
+
+.user-name-header {
+    font-weight: 600;
+    color: var(--dark);
+}
+
+/* Gaya baru untuk tombol "Back" */
+.back-button {
+    padding: 0; /* Menghapus padding */
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    border: 0; /* Menghapus border */
+    background-color: transparent;
+    color: var(--primary);
+    text-decoration: none; /* Pastikan tidak ada underline */
+    cursor: pointer;
+}
+
+.back-button:hover {
+    background-color: rgba(126, 144, 106, 0.05); /* Efek hover ringan */
+}
+
+.back-button i {
+    font-size: 14px;
+}
+
 
 .header-actions {
     display: flex;
     gap: 12px;
     flex-wrap: wrap;
+    margin-bottom: 40px; /* Memberi margin bawah untuk memisahkan dari daftar postingan */
 }
 
-.btn {
+/* Gaya baru untuk tombol "Buat Postingan Baru" (desktop) */
+.create-post-button {
     display: inline-block;
     padding: 10px 20px;
-    border-radius: 4px;
+    border-radius: 6px;
     font-weight: 600;
     text-decoration: none;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-size: 15px;
+    border: 2px solid var(--primary); /* Mengikuti gaya btn-primary */
+    background-color: var(--primary);
+    color: white;
+}
+
+.create-post-button:hover {
+    background-color: var(--secondary);
+    border-color: var(--secondary);
+    transform: translateY(-1px);
+}
+
+
+.btn {
+    /* Kelas .btn umum tidak lagi digunakan untuk tombol-tombol spesifik ini */
+    /* Namun, tetap dipertahankan jika ada elemen lain yang menggunakannya */
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
     cursor: pointer;
     font-size: 15px;
     border: none;
+    margin: 0;
 }
 
 .btn-primary {
     background-color: var(--primary);
     color: white;
+    border: 2px solid var(--primary);
 }
 
 .btn-primary:hover {
     background-color: var(--secondary);
+    border-color: var(--secondary);
     transform: translateY(-1px);
 }
 
 .btn-secondary {
     background-color: transparent;
     color: var(--primary);
-    border: 1px solid var(--primary);
+    border: 2px solid var(--primary);
 }
 
 .btn-secondary:hover {
-    background-color: rgba(126, 144, 106, 0.05);
+    background-color: rgba(126, 144, 106, 0.1);
 }
 
 .section-title {
@@ -92,14 +196,14 @@ body {
 .posts-list {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 16px; /* Mengurangi jarak antar postingan */
 }
 
 .post-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 24px 0;
+    padding: 16px 0; /* Mengurangi padding vertikal */
     border-bottom: 1px solid var(--border);
 }
 
@@ -109,6 +213,9 @@ body {
 
 .post-header {
     margin-bottom: 12px;
+    display: flex; /* Menggunakan flexbox */
+    flex-direction: column; /* Menumpuk elemen secara vertikal */
+    align-items: flex-start; /* Mengatur elemen ke kiri */
 }
 
 .post-title {
@@ -116,7 +223,7 @@ body {
     font-weight: 700;
     font-size: 22px;
     color: var(--dark);
-    margin: 8px 0;
+    margin: 0; /* Hapus margin agar tidak mengganggu flexbox stacking */
     line-height: 1.3;
 }
 
@@ -158,11 +265,12 @@ body {
 }
 
 .post-status {
-    padding: 4px 8px;
-    border-radius: 4px;
+    padding: 4px 15px; /* Diperbarui sesuai perubahan mandiri */
+    border-radius: 50px; /* Diperbarui sesuai perubahan mandiri */
     font-size: 12px;
     font-weight: 600;
     white-space: nowrap;
+    margin-bottom: 8px; /* Tambahkan margin bawah untuk memisahkan dari judul */
 }
 
 .status-published {
@@ -172,7 +280,7 @@ body {
 
 .status-draft {
     background-color: var(--orange-draft);
-    color: white;
+    color: black; /* Diperbarui sesuai perubahan mandiri */
 }
 
 .post-actions {
@@ -187,6 +295,7 @@ body {
     border: 1px solid var(--primary);
     padding: 6px 12px;
     font-size: 14px;
+    border-radius: 6px; /* Diperbarui sesuai /i/style.css */
 }
 
 .btn-edit:hover {
@@ -199,6 +308,7 @@ body {
     border: 1px solid var(--red-error);
     padding: 6px 12px;
     font-size: 14px;
+    border-radius: 6px; /* Diperbarui sesuai /i/style.css */
 }
 
 .btn-delete:hover {
@@ -216,17 +326,118 @@ body {
     color: var(--red-error);
 }
 
+/* Styling untuk tab */
+.tabs-container {
+    margin-bottom: 30px;
+}
+
+.tab-header {
+    display: flex;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 20px;
+}
+
+.tab-btn {
+    padding: 10px 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--gray);
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s;
+    font-size: 15px;
+}
+
+.tab-btn.active {
+    color: var(--primary);
+    border-bottom: 3px solid var(--primary);
+}
+
+/* Floating button for mobile */
+.floating-create-button {
+    position: fixed;
+    bottom: 30px;
+    left: 50%; /* Pusatkan horizontal */
+    transform: translateX(-50%); /* Geser kembali 50% dari lebarnya sendiri */
+    padding: 12px 20px;
+    border-radius: 50px; /* Bentuk pil */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 100;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.floating-create-button:hover {
+    background-color: var(--secondary);
+    transform: translateY(-2px);
+}
+
+/* Sembunyikan floating button di desktop */
+@media (min-width: 769px) {
+    .floating-create-button {
+        display: none;
+    }
+}
+
+/* Sembunyikan tombol "Buat Postingan Baru" yang asli di mobile */
+@media (max-width: 768px) {
+    .header-actions .create-post-button { /* Targetkan class baru */
+        display: none;
+    }
+    /* Penyesuaian lebar floating button di mobile */
+    .floating-create-button {
+        width: calc(100% - 40px); /* Lebar penuh dengan 20px padding di setiap sisi */
+        right: auto; /* Hapus right agar tidak konflik dengan left dan width */
+    }
+}
+
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
     .container {
         padding: 0 15px;
-        margin: 30px auto;
+        margin: 0px auto 30px auto; /* Menggunakan margin auto di sisi kiri/kanan untuk centering */
+        width: calc(100% - 30px); /* Memastikan kontainer mengambil lebar penuh dikurangi padding */
     }
     
     .dashboard-title {
         font-size: 28px;
+        text-align: left; /* Biarkan judul rata kiri pada mobile */
+        width: 100%; /* Memastikan judul mengambil lebar penuh dari parent */
+    }
+
+    .dashboard-header {
+        justify-content: space-between; /* Posisikan profil ke kanan dan tombol back ke kiri */
+        flex-wrap: nowrap; /* Mencegah wrap pada header utama */
+    }
+
+    .user-profile-header {
+        /* margin-left: 0; Dihapus karena justify-content: space-between sudah menangani */
+    }
+
+    .back-button { /* Targetkan class baru */
+        width: auto; /* Mengatur lebar tombol back agar tidak 100% di mobile */
+        order: unset; /* Hapus order agar mengikuti urutan HTML */
     }
     
+    .header-actions {
+        flex-direction: row; /* Kembali ke tata letak baris untuk tombol */
+        width: 100%; /* Memastikan tombol mengambil lebar penuh */
+        justify-content: flex-start; /* Rata kiri tombol */
+    }
+    
+    .btn {
+        width: auto; /* Biarkan lebar tombol sesuai konten */
+    }
+
     .post-item {
         flex-direction: column;
         align-items: flex-start;
