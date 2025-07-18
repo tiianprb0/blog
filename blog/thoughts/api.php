@@ -513,7 +513,7 @@ if (!isset($data['action'])) {
 }
 
 // Pastikan pengguna sudah login untuk aksi yang memerlukan otentikasi
-$requires_auth = ['create_post', 'update_post', 'delete_post'];
+$requires_auth = ['create_post', 'update_post', 'delete_post', 'get_posts']; // Tambahkan 'get_posts' jika ingin memfilter
 if (in_array($data['action'], $requires_auth) && !isset($_SESSION['user_id'])) {
     echo json_encode(['success' => false, 'message' => 'Anda harus login untuk melakukan aksi ini.']);
     exit();
@@ -522,28 +522,38 @@ if (in_array($data['action'], $requires_auth) && !isset($_SESSION['user_id'])) {
 switch ($data['action']) {
     case 'get_posts':
         $posts = getPosts();
-        // Ambil informasi author dari users.json untuk setiap post
         $all_users = getUsers();
+        $filtered_posts = [];
+        $current_user_id = $_SESSION['user_id'] ?? null; // Dapatkan ID pengguna dari sesi
+        $status_filter = $data['status'] ?? 'all'; // Dapatkan filter status dari request
+
         foreach ($posts as &$post) {
-            $author_found = false;
-            foreach ($all_users as $user) {
-                if (isset($post['author_id']) && $user['id'] == $post['author_id']) {
-                    $post['author_display_name'] = $user['display_name'] ?? $user['username'];
-                    $post['author_profile_picture'] = $user['profile_picture'] ?? 'https://placehold.co/100x100/A0B9A0/white?text=Author';
-                    $post['author_username'] = $user['username']; // Pastikan username juga ada
-                    $author_found = true;
-                    break;
+            // Filter hanya postingan milik user yang sedang login
+            if ($current_user_id !== null && isset($post['author_id']) && $post['author_id'] == $current_user_id) {
+                // Filter berdasarkan status jika bukan 'all'
+                if ($status_filter === 'all' || $post['status'] === $status_filter) {
+                    $author_found = false;
+                    foreach ($all_users as $user) {
+                        if (isset($post['author_id']) && $user['id'] == $post['author_id']) {
+                            $post['author_display_name'] = $user['display_name'] ?? $user['username'];
+                            $post['author_profile_picture'] = $user['profile_picture'] ?? 'https://placehold.co/100x100/A0B9A0/white?text=Author';
+                            $post['author_username'] = $user['username']; // Pastikan username juga ada
+                            $author_found = true;
+                            break;
+                        }
+                    }
+                    if (!$author_found) {
+                        // Fallback jika author tidak ditemukan di users.json
+                        $post['author_display_name'] = $post['author_username'] ?? 'Unknown Author';
+                        $post['author_profile_picture'] = 'https://placehold.co/100x100/A0B9A0/white?text=Author';
+                    }
+                    $filtered_posts[] = $post; // Tambahkan postingan yang difilter
                 }
-            }
-            if (!$author_found) {
-                // Fallback jika author tidak ditemukan di users.json
-                $post['author_display_name'] = $post['author_username'] ?? 'Unknown Author';
-                $post['author_profile_picture'] = 'https://placehold.co/100x100/A0B9A0/white?text=Author';
             }
         }
         // Debug: Log the posts array right before encoding
-        error_log("Posts array before encoding: " . print_r($posts, true));
-        echo json_encode(['success' => true, 'posts' => $posts]);
+        error_log("Posts array before encoding: " . print_r($filtered_posts, true));
+        echo json_encode(['success' => true, 'posts' => $filtered_posts]);
         break;
 
     case 'get_post':
@@ -561,8 +571,11 @@ switch ($data['action']) {
         }
         $posts = getPosts();
         $found_post = null;
+        $current_user_id = $_SESSION['user_id'] ?? null; // Dapatkan ID pengguna dari sesi
+
         foreach ($posts as $post) {
-            if ($post['id'] == $post_id) {
+            // Pastikan hanya bisa mendapatkan postingan milik sendiri
+            if ($post['id'] == $post_id && isset($post['author_id']) && $post['author_id'] == $current_user_id) {
                 $found_post = $post;
                 break;
             }
@@ -573,8 +586,8 @@ switch ($data['action']) {
             echo json_encode(['success' => true, 'post' => $found_post]);
         } else {
             // Debug: Log that post was not found
-            error_log("DEBUG: get_post - Post with ID {$post_id} not found.");
-            echo json_encode(['success' => false, 'message' => 'Postingan tidak ditemukan.']);
+            error_log("DEBUG: get_post - Post with ID {$post_id} not found or not owned by current user.");
+            echo json_encode(['success' => false, 'message' => 'Postingan tidak ditemukan atau Anda tidak memiliki izin untuk melihatnya.']);
         }
         break;
 
@@ -651,8 +664,11 @@ switch ($data['action']) {
 
         $posts = getPosts();
         $found_index = -1;
+        $current_user_id = $_SESSION['user_id'] ?? null; // Dapatkan ID pengguna dari sesi
+
         foreach ($posts as $index => $post) {
-            if ($post['id'] == $post_id) {
+            // Pastikan hanya bisa mengupdate postingan milik sendiri
+            if ($post['id'] == $post_id && isset($post['author_id']) && $post['author_id'] == $current_user_id) {
                 $found_index = $index;
                 break;
             }
@@ -721,7 +737,7 @@ switch ($data['action']) {
                 echo json_encode(['success' => true, 'message' => 'Postingan berhasil diperbarui!', 'post_url' => $post_url]);
             }
         } else {
-            echo json_encode(['success' => false, 'message' => 'Postingan tidak ditemukan untuk diperbarui.']);
+            echo json_encode(['success' => false, 'message' => 'Postingan tidak ditemukan atau Anda tidak memiliki izin untuk memperbaruinya.']);
         }
         break;
 
@@ -735,8 +751,11 @@ switch ($data['action']) {
         $posts = getPosts();
         $original_post_data = null;
         $posts_filtered = [];
+        $current_user_id = $_SESSION['user_id'] ?? null; // Dapatkan ID pengguna dari sesi
+
         foreach ($posts as $post) {
-            if ($post['id'] == $post_id) {
+            // Pastikan hanya bisa menghapus postingan milik sendiri
+            if ($post['id'] == $post_id && isset($post['author_id']) && $post['author_id'] == $current_user_id) {
                 $original_post_data = $post; // Simpan data post yang akan dihapus
             } else {
                 $posts_filtered[] = $post;
@@ -755,7 +774,7 @@ switch ($data['action']) {
             }
             echo json_encode(['success' => true, 'message' => 'Postingan berhasil dihapus.']);
         } else {
-            echo json_encode(['success' => false, 'message' => 'Postingan tidak ditemukan untuk dihapus.']);
+            echo json_encode(['success' => false, 'message' => 'Postingan tidak ditemukan atau Anda tidak memiliki izin untuk menghapusnya.']);
         }
         break;
 
