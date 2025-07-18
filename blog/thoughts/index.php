@@ -28,7 +28,8 @@ $author_avatar = $_SESSION['profile_picture'] ?? 'https://placehold.co/100x100/A
     <div class="container">
         <header class="dashboard-header">
             <!-- Back button on the left side of the header -->
-            <a href="javascript:history.back()" class="back-button">
+            <!-- Modified back button to use JavaScript for conditional history navigation -->
+            <a href="#" id="back-button" class="back-button">
                 <i class="fas fa-arrow-left"></i> Back
             </a>
             <!-- User profile on the right side of the header, now clickable -->
@@ -77,6 +78,7 @@ $author_avatar = $_SESSION['profile_picture'] ?? 'https://placehold.co/100x100/A
             const createPostBtn = document.getElementById('create-post-btn');
             const floatingCreatePostBtn = document.getElementById('floating-create-post-btn');
             const tabButtons = document.querySelectorAll('.tab-btn');
+            const backButton = document.getElementById('back-button'); // Get the back button element
 
             // Function to fetch and display posts
             async function fetchAndDisplayPosts(statusFilter = 'all') {
@@ -205,6 +207,40 @@ $author_avatar = $_SESSION['profile_picture'] ?? 'https://placehold.co/100x100/A
                     const status = e.target.dataset.status;
                     fetchAndDisplayPosts(status);
                 });
+            });
+
+            // Handle back button click to skip 'ink' page if it's the immediate referrer
+            backButton.addEventListener('click', (e) => {
+                e.preventDefault(); // Prevent default link behavior
+
+                if (window.history.length > 1) {
+                    let prevUrl = document.referrer; // Get the referrer URL
+                    let prevPath = '';
+
+                    try {
+                        if (prevUrl) {
+                            const url = new URL(prevUrl);
+                            prevPath = url.pathname;
+                        }
+                    } catch (error) {
+                        console.warn('Could not parse referrer URL:', prevUrl, error);
+                    }
+
+                    const inkPath = '/blog/thoughts/ink/';
+
+                    // If the immediate previous page was exactly 'ink', go back two steps.
+                    // This skips 'ink' and the current 'thoughts' page, taking the user to the page before 'thoughts'.
+                    if (prevPath === inkPath) {
+                        history.go(-2); 
+                    } else {
+                        // Otherwise, go back one step as usual.
+                        history.back();
+                    }
+                } else {
+                    // If no history, or history length is 1 (current page is the only one),
+                    // redirect to a default safe page, e.g., the blog's root.
+                    window.location.href = '/blog/'; // Adjust this to your desired default page
+                }
             });
 
             // Load initial posts (all) when page loads
