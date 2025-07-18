@@ -1,23 +1,23 @@
 <?php
-session_start(); // Mulai sesi PHP
+session_start(); // Start PHP session
 
-// Periksa apakah pengguna sudah login DAN apakah mereka memiliki izin menulis postingan
+// Check if user is logged in AND if they have post writing permission
 if (!isset($_SESSION['user_id']) || !isset($_SESSION['can_write_post']) || $_SESSION['can_write_post'] !== true) {
-    // Jika tidak login atau tidak memiliki izin, alihkan ke halaman login
+    // If not logged in or no permission, redirect to login page
     header('Location: /blog/knock2/');
     exit();
 }
 
-// Data author dari sesi (akan digunakan sebagai fallback jika data post tidak lengkap)
+// Author data from session (will be used as fallback if post data is incomplete)
 $author_name = $_SESSION['display_name'] ?? $_SESSION['username'] ?? 'Unknown Author';
 $author_avatar = $_SESSION['profile_picture'] ?? 'https://placehold.co/100x100/A0B9A0/white?text=Author';
 ?>
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en"> <!-- Changed language to English -->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Postingan - Tian Blog</title>
+    <title>Posts Dashboard - Tian Blog</title> <!-- Translated title -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -27,21 +27,47 @@ $author_avatar = $_SESSION['profile_picture'] ?? 'https://placehold.co/100x100/A
 <body>
     <div class="container">
         <header class="dashboard-header">
-            <h1 class="dashboard-title">Dashboard Postingan</h1>
-            <div class="header-actions">
-                <a href="/blog/" class="btn btn-secondary">Kembali ke Blog</a>
-                <button class="btn btn-primary" id="create-post-btn">Buat Postingan Baru</button>
-            </div>
+            <!-- Back button on the left side of the header -->
+            <a href="javascript:history.back()" class="back-button">
+                <i class="fas fa-arrow-left"></i> Back
+            </a>
+            <!-- User profile on the right side of the header, now clickable -->
+            <a href="/blog/user" class="user-profile-link"> <!-- Added anchor tag -->
+                <div class="user-profile-header">
+                    <span class="user-name-header"><?php echo htmlspecialchars($author_name); ?></span>
+                    <img src="<?php echo htmlspecialchars($author_avatar); ?>" alt="User Profile" class="profile-image-header">
+                </div>
+            </a>
         </header>
 
-        <div class="post-list-container">
-            <h2 class="section-title">Daftar Postingan</h2>
+        <!-- Dashboard title below the header -->
+        <h1 class="dashboard-title">Posts Dashboard</h1> <!-- Translated title -->
+        <p class="dashboard-subtitle">What's on your mind: a personal space for opinions and candid expressions.</p> <!-- New descriptive text -->
+        
+        <!-- Header actions (for desktop) below the dashboard title -->
+        <div class="header-actions">
+            <button class="create-post-button" id="create-post-btn">Create New Post</button> <!-- Translated button text -->
+        </div>
+
+        <!-- Tabbed interface for post list -->
+        <div class="tabs-container">
+            <div class="tab-header">
+                <button class="tab-btn active" data-status="all">All</button>
+                <button class="tab-btn" data-status="published">Published</button>
+                <button class="tab-btn" data-status="draft">Draft</button>
+            </div>
             <div id="posts-list" class="posts-list">
-                <p id="loading-message">Memuat postingan...</p>
-                <p id="no-posts-message" style="display: none;">Belum ada postingan. Ayo buat yang pertama!</p>
+                <p id="loading-message">Loading posts...</p> <!-- Translated text -->
+                <p id="no-posts-message" style="display: none;">No posts yet. Let's create the first one!</p> <!-- Translated text -->
             </div>
         </div>
+
     </div>
+
+    <!-- Floating button for mobile with new class -->
+    <button class="floating-create-button" id="floating-create-post-btn">
+        <i class="fas fa-plus"></i> Create Post <!-- Translated button text -->
+    </button>
 
     <script>
         document.addEventListener('DOMContentLoaded', async () => {
@@ -49,18 +75,20 @@ $author_avatar = $_SESSION['profile_picture'] ?? 'https://placehold.co/100x100/A
             const loadingMessage = document.getElementById('loading-message');
             const noPostsMessage = document.getElementById('no-posts-message');
             const createPostBtn = document.getElementById('create-post-btn');
+            const floatingCreatePostBtn = document.getElementById('floating-create-post-btn');
+            const tabButtons = document.querySelectorAll('.tab-btn');
 
-            // Fungsi untuk mengambil dan menampilkan postingan
-            async function fetchAndDisplayPosts() {
+            // Function to fetch and display posts
+            async function fetchAndDisplayPosts(statusFilter = 'all') {
                 loadingMessage.style.display = 'block';
                 noPostsMessage.style.display = 'none';
-                postsList.innerHTML = ''; // Bersihkan daftar yang ada
+                postsList.innerHTML = ''; // Clear existing list
 
                 try {
                     const response = await fetch('api.php', {
-                        method: 'POST', // Menggunakan metode POST
+                        method: 'POST', // Using POST method
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ action: 'get_posts' }) // Mengirim aksi di body JSON
+                        body: JSON.stringify({ action: 'get_posts', status: statusFilter }) // Send action and status filter
                     });
                     
                     const rawResponseText = await response.text();
@@ -68,10 +96,10 @@ $author_avatar = $_SESSION['profile_picture'] ?? 'https://placehold.co/100x100/A
 
                     let result;
                     try {
-                        result = JSON.parse(rawResponseText); // Coba parse secara manual
+                        result = JSON.parse(rawResponseText); // Try to parse manually
                     } catch (e) {
                         console.error('Error parsing JSON from API response:', e);
-                        loadingMessage.textContent = 'Gagal memuat postingan: Respons API tidak valid.';
+                        loadingMessage.textContent = 'Failed to load posts: Invalid API response.'; // Translated error message
                         loadingMessage.classList.add('error');
                         return;
                     }
@@ -84,11 +112,10 @@ $author_avatar = $_SESSION['profile_picture'] ?? 'https://placehold.co/100x100/A
                             const postElement = document.createElement('div');
                             postElement.classList.add('post-item');
                             
-                            const statusText = post.status === 'published' ? 'Dipublikasikan' : 'Draft';
+                            const statusText = post.status === 'published' ? 'Published' : 'Draft'; // Translated status text
                             const statusClass = post.status === 'published' ? 'status-published' : 'status-draft';
 
-                            const publishDate = post.published_at ? new Date(post.published_at).toLocaleString() : 'Belum dipublikasikan';
-                            const editedDate = post.edited_at ? new Date(post.edited_at).toLocaleString() : 'Belum diedit';
+                            const publishDate = post.published_at ? new Date(post.published_at).toLocaleString() : 'Not yet published'; // Translated text
                             
                             const authorName = post.author_display_name || post.author_username || "<?php echo $author_name; ?>";
                             const authorAvatar = post.author_profile_picture || "<?php echo $author_avatar; ?>";
@@ -98,8 +125,8 @@ $author_avatar = $_SESSION['profile_picture'] ?? 'https://placehold.co/100x100/A
                                 <div class="post-content">
                                     <div class="post-header">
                                         <span class="post-status ${statusClass}">${statusText}</span>
-                                        <h3 class="post-title">${post.title || 'Judul Tanpa Nama'}</h3>
-                                        <p class="post-synopsis">${post.synopsis || 'Tidak ada sinopsis.'}</p>
+                                        <h3 class="post-title">${post.title || 'Untitled'}</h3> <!-- Translated text -->
+                                        <p class="post-synopsis">${post.synopsis || 'No synopsis.'}</p> <!-- Translated text -->
                                     </div>
                                     <div class="post-footer">
                                         <div class="author-info">
@@ -113,7 +140,7 @@ $author_avatar = $_SESSION['profile_picture'] ?? 'https://placehold.co/100x100/A
                                 </div>
                                 <div class="post-actions">
                                     <button class="btn btn-edit" data-id="${post.id}">Edit</button>
-                                    <button class="btn btn-delete" data-id="${post.id}">Hapus</button>
+                                    <button class="btn btn-delete" data-id="${post.id}">Delete</button> <!-- Translated text -->
                                 </div>
                             `;
                             postsList.appendChild(postElement);
@@ -129,7 +156,7 @@ $author_avatar = $_SESSION['profile_picture'] ?? 'https://placehold.co/100x100/A
                         document.querySelectorAll('.btn-delete').forEach(button => {
                             button.addEventListener('click', async (e) => {
                                 const postId = e.target.dataset.id;
-                                if (confirm('Apakah Anda yakin ingin menghapus postingan ini?')) {
+                                if (confirm('Are you sure you want to delete this post?')) { // Translated confirmation
                                     const response = await fetch('api.php', {
                                         method: 'POST',
                                         headers: { 'Content-Type': 'application/json' },
@@ -137,10 +164,10 @@ $author_avatar = $_SESSION['profile_picture'] ?? 'https://placehold.co/100x100/A
                                     });
                                     const result = await response.json();
                                     if (result.success) {
-                                        alert('Postingan berhasil dihapus!');
-                                        fetchAndDisplayPosts();
+                                        alert('Post deleted successfully!'); // Translated alert
+                                        fetchAndDisplayPosts(document.querySelector('.tab-btn.active').dataset.status); // Refresh with active tab
                                     } else {
-                                        alert('Gagal menghapus postingan: ' + result.message);
+                                        alert('Failed to delete post: ' + result.message); // Translated alert
                                     }
                                 }
                             });
@@ -152,16 +179,36 @@ $author_avatar = $_SESSION['profile_picture'] ?? 'https://placehold.co/100x100/A
                     }
                 } catch (error) {
                     console.error('Error fetching posts (network or unexpected error):', error);
-                    loadingMessage.textContent = 'Gagal memuat postingan: Terjadi kesalahan jaringan atau tidak terduga.';
+                    loadingMessage.textContent = 'Failed to load posts: Network or unexpected error occurred.'; // Translated error message
                     loadingMessage.classList.add('error');
                 }
             }
 
+            // Event listener for "Create New Post" button (desktop)
             createPostBtn.addEventListener('click', () => {
                 window.location.href = '/blog/thoughts/ink/';
             });
 
-            fetchAndDisplayPosts();
+            // Event listener for "Create New Post" button (floating mobile)
+            floatingCreatePostBtn.addEventListener('click', () => {
+                window.location.href = '/blog/thoughts/ink/';
+            });
+
+            // Event listeners for tabs
+            tabButtons.forEach(button => {
+                button.addEventListener('click', (e) => {
+                    // Remove 'active' class from all tab buttons
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add 'active' class to the clicked button
+                    e.target.classList.add('active');
+                    // Get status from data-status attribute and load posts
+                    const status = e.target.dataset.status;
+                    fetchAndDisplayPosts(status);
+                });
+            });
+
+            // Load initial posts (all) when page loads
+            fetchAndDisplayPosts('all');
         });
     </script>
 </body>
