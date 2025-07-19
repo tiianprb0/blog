@@ -1,0 +1,264 @@
+/* CSS dasar dari template-post.html untuk konsistensi */
+:root {
+    --body-bg: #407088; /* Warna background body dari halaman login */
+    --container-bg: #2D4B42; /* Hijau gelap dari halaman login */
+    --text-on-dark: #E0F2F1; /* Warna teks/ikon terang untuk kontras */
+    --input-border-color: rgba(255, 255, 255, 0.5); /* Garis putus-putus putih */
+    --input-focus-color: white; /* Garis putih saat fokus */
+    --button-bg: #597D70; /* Warna tombol, sedikit lebih terang dari container */
+    --button-hover-bg: #4A6A60; /* Warna tombol saat hover */
+    --link-color: var(--text-on-dark); /* Warna link */
+    --gray-on-dark: rgba(255, 255, 255, 0.7); /* Warna abu-abu terang untuk label */
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    line-height: 1.6;
+    color: var(--text-on-dark);
+    background-color: var(--body-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: hidden; /* Tetap hidden untuk slide agar tidak ada scrollbar ganda */
+}
+
+.container {
+    background-color: var(--container-bg);
+    padding: 40px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 500px; /* Lebih lebar sedikit untuk konten */
+    text-align: center;
+    position: relative;
+    height: 600px; /* Tinggi tetap untuk slide */
+    overflow: hidden; /* Penting untuk efek slide */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.slides-wrapper {
+    display: flex;
+    width: 200%; /* Dua slide, masing-masing 100% dari container */
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    width: 50%; /* Setiap slide mengambil 50% dari slides-wrapper */
+    flex-shrink: 0; /* Mencegah slide menyusut */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px; /* Padding internal slide */
+    box-sizing: border-box;
+    text-align: left; /* Teks rata kiri di dalam slide */
+}
+
+.slide-content {
+    max-width: 400px; /* Konten tidak terlalu lebar */
+    margin: auto; /* Pusatkan konten */
+}
+
+.slide-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 1.2;
+    color: white;
+    margin-bottom: 20px;
+}
+
+.slide-description {
+    font-size: 16px;
+    color: var(--text-on-dark);
+    margin-bottom: 30px;
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    padding: 15px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-size: 18px;
+    border: none;
+    margin-top: 30px;
+    box-sizing: border-box;
+}
+
+.btn-primary {
+    background-color: var(--button-bg);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: var(--button-hover-bg);
+}
+
+/* Form Styling (mirip dengan halaman login) */
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: var(--gray-on-dark);
+    font-size: 14px;
+    text-transform: uppercase;
+}
+
+.form-group input[type="text"],
+.form-group input[type="url"],
+.form-group input[type="date"],
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--input-border-color);
+    border-radius: 6px;
+    font-size: 16px;
+    box-sizing: border-box;
+    background-color: transparent; /* Transparan agar warna container terlihat */
+    color: var(--text-on-dark); /* Warna teks input */
+    transition: border-color 0.3s;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="url"]:focus,
+.form-group input[type="date"]:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--input-focus-color);
+}
+
+/* Style untuk placeholder */
+.form-group input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Style untuk select arrow */
+.form-group select {
+    appearance: none; /* Hapus default arrow */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20256%20256%22%3E%3Cpath%20fill%3D%22%23E0F2F1%22%20d%3D%22M216%2096H40a8%208%200%200%200-5.66%2013.66l88%2088a8%208%200%200%200%2011.32%200l88-88A8%208%200%200%200%20216%2096Z%22%2F%3E%3C%2Fsvg%3E'); /* Custom SVG arrow */
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+    padding-right: 30px; /* Ruang untuk arrow */
+}
+
+/* Warna option di select */
+.form-group select option {
+    background-color: var(--container-bg); /* Background option */
+    color: var(--text-on-dark); /* Warna teks option */
+}
+
+
+.message {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 6px;
+    font-weight: 500;
+    display: none;
+    text-align: left;
+    color: #2c3e50; /* Warna teks pesan agar terbaca di background terang */
+    background-color: #f8f9f7; /* Background terang untuk pesan */
+}
+
+.message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+/* Profile Picture Options */
+.profile-picture-options {
+    display: flex;
+    justify-content: space-around;
+    gap: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    flex-wrap: wrap; /* Wrap items on smaller screens */
+}
+
+.profile-option {
+    width: 60px; /* Ukuran gambar profil */
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+    border: 2px solid transparent; /* Default border */
+    transition: border-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.profile-option:hover {
+    transform: scale(1.05);
+}
+
+.profile-option.selected {
+    border-color: var(--input-focus-color); /* Border saat terpilih */
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.5); /* Shadow tambahan */
+}
+
+.or-label {
+    text-align: center;
+    margin: 15px 0;
+    font-size: 14px;
+    color: var(--gray-on-dark);
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    body {
+        padding: 0;
+    }
+    .container {
+        padding: 30px 20px;
+        border-radius: 0;
+        min-height: 100vh;
+        max-width: 100%;
+        height: auto; /* Biarkan tinggi menyesuaikan konten */
+        justify-content: flex-start; /* Konten mulai dari atas */
+    }
+    .slide {
+        padding: 15px;
+    }
+    .slide-title {
+        font-size: 28px;
+    }
+    .slide-description {
+        font-size: 15px;
+    }
+    .btn {
+        padding: 12px 15px;
+        font-size: 16px;
+    }
+    .form-group input,
+    .form-group select {
+        padding: 10px;
+        font-size: 15px;
+    }
+    .profile-option {
+        width: 50px;
+        height: 50px;
+    }
+}

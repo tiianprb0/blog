@@ -1,0 +1,592 @@
+[
+    {
+        "id": 1,
+        "author_id": "your_user_id_here",
+        "author_username": "your_username",
+        "author_display_name": "Your Display Name",
+        "author_profile_picture": "https:\/\/placehold.co\/100x100\/A0B9A0\/white?text=Me",
+        "title": "Postingan Pertama Saya",
+        "slug": "postingan-pertama-saya",
+        "synopsis": "Ini adalah sinopsis singkat dari postingan pertama yang saya buat.",
+        "thumbnail_url": "https:\/\/placehold.co\/600x400\/7E906A\/white?text=Thumbnail",
+        "thumbnail_caption": "Gambar thumbnail untuk postingan pertama.",
+        "content_blocks": [
+            {
+                "id": "para1",
+                "type": "paragraph",
+                "content": "Halo dunia! Ini adalah konten paragraf pertama dari postingan saya."
+            },
+            {
+                "id": "head2",
+                "type": "heading2",
+                "content": "Bagian Kedua Postingan"
+            }
+        ],
+        "status": "draft",
+        "published_at": null,
+        "created_at": "2023-10-27 10:00:00",
+        "edited_at": "2025-07-16 16:51:38",
+        "category": "Uncategorized"
+    },
+    {
+        "id": 2,
+        "author_id": "your_user_id_here",
+        "author_username": "your_username",
+        "author_display_name": "Your Display Name",
+        "author_profile_picture": "https:\/\/placehold.co\/100x100\/A0B9A0\/white?text=Me",
+        "title": "Postingan yang Sudah Dipublikasikan",
+        "slug": "postingan-yang-sudah-dipublikasikan",
+        "synopsis": "Ini adalah postingan yang sudah siap untuk dilihat publik.",
+        "thumbnail_url": "https:\/\/placehold.co\/600x400\/6A7D59\/white?text=Published",
+        "thumbnail_caption": "Gambar thumbnail untuk postingan yang dipublikasikan.",
+        "content_blocks": [
+            {
+                "id": "para2",
+                "type": "paragraph",
+                "content": "Konten dari postingan yang sudah dipublikasikan. Ini akan muncul di blog utama."
+            }
+        ],
+        "status": "published",
+        "published_at": "2023-10-26 15:30:00",
+        "created_at": "2023-10-25 09:00:00",
+        "edited_at": "2023-10-26 15:30:00"
+    },
+    {
+        "id": 3,
+        "author_id": 2,
+        "author_username": "admin",
+        "author_display_name": "Nama Panjang Admin Ganteng",
+        "author_profile_picture": "https:\/\/i.pinimg.com\/736x\/38\/2a\/8f\/382a8fd5b8cef03fbce841bc5c3bf137.jpg",
+        "title": "tessttt",
+        "slug": "tessttt",
+        "synopsis": "gregergerger",
+        "thumbnail_url": "",
+        "thumbnail_caption": "",
+        "content_blocks": [],
+        "status": "draft",
+        "published_at": null,
+        "created_at": "2025-07-16 15:52:19",
+        "edited_at": "2025-07-16 15:52:19"
+    },
+    {
+        "id": 4,
+        "author_id": 2,
+        "author_username": "admin",
+        "author_display_name": "Nama Panjang Admin Ganteng",
+        "author_profile_picture": "https:\/\/i.pinimg.com\/736x\/38\/2a\/8f\/382a8fd5b8cef03fbce841bc5c3bf137.jpg",
+        "title": "hmmm",
+        "slug": "hmmm",
+        "synopsis": "ini contoh aja ya",
+        "thumbnail_url": "https:\/\/cnc-magazine.oramiland.com\/parenting\/images\/winter-aespa.width-800.format-webp.webp",
+        "thumbnail_caption": "adadasdasdasdas",
+        "content_blocks": [
+            {
+                "id": "md5r0zzhbfoh4",
+                "type": "heading2",
+                "content": "ini contoh"
+            },
+            {
+                "id": "md5r14g5arro7",
+                "type": "paragraph",
+                "content": "hahahhaahahaha hahaha ashhas sahdhasdas sadhsadhasbd"
+            },
+            {
+                "id": "md5r1k3ydvru1",
+                "type": "grid-gallery",
+                "images": [
+                    {
+                        "id": "md5r1rt9jrshk",
+                        "url": "https:\/\/koreanindo.net\/wp-content\/uploads\/2024\/03\/Winter.jpeg",
+                        "caption": "ini winter"
+                    },
+                    {
+                        "id": "md5r1w2tmcwiu",
+                        "url": "https:\/\/womensobsession.com\/uploads\/post_article\/20240912210816-92d43.jpg",
+                        "caption": "asasasa"
+                    },
+                    {
+                        "id": "md5r23lxpe45b",
+                        "url": "https:\/\/www.rukita.co\/stories\/wp-content\/uploads\/2022\/04\/winter-1.jpg",
+                        "caption": "asasas"
+                    },
+                    {
+                        "id": "md5r29ydag2ks",
+                        "url": "https:\/\/static.promediateknologi.id\/crop\/0x0:0x0\/0x0\/webp\/photo\/p2\/01\/2024\/04\/12\/IMG_20240412_100849-4260223919.jpg",
+                        "caption": "asasas"
+                    },
+                    {
+                        "id": "md5r2h2ubqd44",
+                        "url": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcQrgfiMISoJFrVWCa_H4NKi-_HJwCPjU35img&s",
+                        "caption": "aasasasa"
+                    }
+                ]
+            },
+            {
+                "id": "md5r2yulr69v5",
+                "type": "note",
+                "title": "asdad",
+                "content": "a dw dqwd qwd qwd qwd"
+            }
+        ],
+        "status": "published",
+        "published_at": "2025-07-16 16:20:11",
+        "created_at": "2025-07-16 16:20:09",
+        "edited_at": "2025-07-16 16:20:22",
+        "category": "Contoh"
+    },
+    {
+        "id": 5,
+        "author_id": 2,
+        "author_username": "admin",
+        "author_display_name": "Nama Panjang Admin Ganteng",
+        "author_profile_picture": "https:\/\/i.pinimg.com\/736x\/38\/2a\/8f\/382a8fd5b8cef03fbce841bc5c3bf137.jpg",
+        "title": "test",
+        "slug": "test",
+        "synopsis": "aahahhaha",
+        "thumbnail_url": "",
+        "thumbnail_caption": "",
+        "content_blocks": [
+            {
+                "id": "md5sc204l3pdz",
+                "type": "tabs",
+                "content": [
+                    {
+                        "id": "md5sc343o7v36",
+                        "title": "wewe",
+                        "content": "wewew"
+                    }
+                ]
+            }
+        ],
+        "status": "published",
+        "published_at": "2025-07-16T09:55:15.051Z",
+        "created_at": "2025-07-16 16:55:13",
+        "edited_at": "2025-07-16 16:55:13",
+        "category": "Contoh"
+    },
+    {
+        "id": 6,
+        "author_id": 2,
+        "author_username": "admin",
+        "author_display_name": "Nama Panjang Admin Ganteng",
+        "author_profile_picture": "https:\/\/i.pinimg.com\/736x\/38\/2a\/8f\/382a8fd5b8cef03fbce841bc5c3bf137.jpg",
+        "title": "ertret",
+        "slug": "ertret",
+        "synopsis": "ertert",
+        "thumbnail_url": "",
+        "thumbnail_caption": "",
+        "content_blocks": [],
+        "status": "draft",
+        "published_at": null,
+        "created_at": "2025-07-16 17:00:16",
+        "edited_at": "2025-07-16 17:05:02",
+        "category": "Uncategorized"
+    },
+    {
+        "id": 7,
+        "author_id": 1,
+        "author_username": "admin",
+        "author_display_name": "Tian",
+        "author_profile_picture": "https:\/\/i.pinimg.com\/736x\/1f\/0a\/64\/1f0a64973d9be906f4f8f0892ecd8afd.jpg",
+        "title": "Lorem Ipsum",
+        "slug": "lorem-ipsum",
+        "synopsis": "Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit...",
+        "thumbnail_url": "https:\/\/imgx.parapuan.co\/crop\/0x0:0x0\/752x408\/filters:format(webp)\/photo\/2023\/01\/27\/karinajpg-20230123020721jpg-20230127122335.jpg",
+        "thumbnail_caption": "Karina Aespa",
+        "content_blocks": [
+            {
+                "id": "md84zl1u2s8pp",
+                "type": "paragraph",
+                "content": "There is no one who loves pain itself, who seeks after it and wants to have it, simply because it is pain..."
+            },
+            {
+                "id": "md84zxsill1pp",
+                "type": "heading2",
+                "content": "What is Lorem Ipsum?"
+            },
+            {
+                "id": "md851fyamp377",
+                "type": "paragraph",
+                "content": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+            },
+            {
+                "id": "md851sjmwkbfl",
+                "type": "image",
+                "url": "https:\/\/cnc-magazine.oramiland.com\/parenting\/images\/Karina_4.width-500.format-webp.webp",
+                "caption": "Karina Aespa"
+            },
+            {
+                "id": "md8526n6x2kv1",
+                "type": "heading2",
+                "content": "Why do we use it?"
+            },
+            {
+                "id": "md8529xujxt75",
+                "type": "paragraph",
+                "content": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the <b>years<\/b>, sometimes by accident, sometimes on purpose (injected humour and the like)."
+            },
+            {
+                "id": "md852s6avd2ij",
+                "type": "heading3",
+                "content": "Where can I get some?"
+            },
+            {
+                "id": "md8531ya8tmgk",
+                "type": "paragraph",
+                "content": "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc."
+            },
+            {
+                "id": "md853o62kzpx5",
+                "type": "paragraph",
+                "content": "ll the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable."
+            },
+            {
+                "id": "md85424qicc72",
+                "type": "heading4",
+                "content": "Where does it come from?"
+            },
+            {
+                "id": "md854b7u8poc7",
+                "type": "paragraph",
+                "content": "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32."
+            }
+        ],
+        "status": "published",
+        "published_at": "2025-07-18 08:28:55",
+        "created_at": "2025-07-18 08:28:24",
+        "edited_at": "2025-07-18 08:28:55",
+        "category": "Test"
+    },
+    {
+        "id": 8,
+        "author_id": 1,
+        "author_username": "admin",
+        "author_display_name": "Tian",
+        "author_profile_picture": "https:\/\/i.pinimg.com\/736x\/1f\/0a\/64\/1f0a64973d9be906f4f8f0892ecd8afd.jpg",
+        "title": "hahahahahah",
+        "slug": "hahahahahah",
+        "synopsis": "sdsdasdadwdw",
+        "thumbnail_url": "https:\/\/imgx.parapuan.co\/crop\/0x0:0x0\/752x408\/filters:format(webp)\/photo\/2023\/01\/27\/karinajpg-20230123020721jpg-20230127122335.jpg",
+        "thumbnail_caption": "wadwad",
+        "content_blocks": [
+            {
+                "id": "md87rcykmnsx7",
+                "type": "paragraph",
+                "content": "dwdqw wd qwd qwd wd qw"
+            },
+            {
+                "id": "md87rgfgnn9q3",
+                "type": "heading2",
+                "content": "qwd wqdwqd wqdq "
+            },
+            {
+                "id": "md87rlt0owm8j",
+                "type": "paragraph",
+                "content": "qw dwdqwdqwd wwq dq wd wqd qwd wd qw dwq dwq dqwdqw dq wd qwd  wqd qwd qw dwq qwd"
+            },
+            {
+                "id": "md87ru4klunmd",
+                "type": "heading2",
+                "content": "wqe qwe qweq"
+            },
+            {
+                "id": "md87rxqswz3wd",
+                "type": "paragraph",
+                "content": "we qwe qweqeqweqweqwe  dsind sf qwef ben fq p;wjfbqwfd qwdf fwq "
+            },
+            {
+                "id": "md87s41gjkdrm",
+                "type": "heading3",
+                "content": "wd wdqwdwqdwq d qwq d qwd"
+            },
+            {
+                "id": "md87s8asj69qk",
+                "type": "paragraph",
+                "content": " wqdqwdqwdqwdqwdqwdq"
+            },
+            {
+                "id": "md87sdv8y8wfy",
+                "type": "heading4",
+                "content": " dqwdqwdwqdwqd"
+            },
+            {
+                "id": "md87slt09xsuu",
+                "type": "carousel",
+                "images": [
+                    {
+                        "id": "md87so5xnqg2s",
+                        "url": "https:\/\/selfietime.id\/storage\/715083\/Vfcer4eTSsKEyPEJhBt5p8wlx9pIR8-metaa2FyaW5hLmpwZw==-.jpg",
+                        "caption": "aadad"
+                    },
+                    {
+                        "id": "md87t3j8ylh0y",
+                        "url": "https:\/\/selfietime.id\/storage\/715083\/Vfcer4eTSsKEyPEJhBt5p8wlx9pIR8-metaa2FyaW5hLmpwZw==-.jpg",
+                        "caption": "adadada"
+                    },
+                    {
+                        "id": "md87t5t0gsjhi",
+                        "url": "https:\/\/selfietime.id\/storage\/715083\/Vfcer4eTSsKEyPEJhBt5p8wlx9pIR8-metaa2FyaW5hLmpwZw==-.jpg",
+                        "caption": "adsadada"
+                    },
+                    {
+                        "id": "md87t818tkrgu",
+                        "url": "https:\/\/selfietime.id\/storage\/715083\/Vfcer4eTSsKEyPEJhBt5p8wlx9pIR8-metaa2FyaW5hLmpwZw==-.jpg",
+                        "caption": "dadad"
+                    }
+                ]
+            },
+            {
+                "id": "md87tfeksxegq",
+                "type": "blockquote",
+                "quote": "sfsasaf",
+                "author": "saf sf"
+            },
+            {
+                "id": "md87tnm4ary2c",
+                "type": "swipe-gallery",
+                "images": [
+                    {
+                        "id": "md87todovxwc4",
+                        "url": "https:\/\/selfietime.id\/storage\/715083\/Vfcer4eTSsKEyPEJhBt5p8wlx9pIR8-metaa2FyaW5hLmpwZw==-.jpg",
+                        "caption": "sadsada"
+                    },
+                    {
+                        "id": "md87trn0l64lo",
+                        "url": "https:\/\/selfietime.id\/storage\/715083\/Vfcer4eTSsKEyPEJhBt5p8wlx9pIR8-metaa2FyaW5hLmpwZw==-.jpg",
+                        "caption": "asdasdasd"
+                    },
+                    {
+                        "id": "md87ttr80nfwy",
+                        "url": "https:\/\/selfietime.id\/storage\/715083\/Vfcer4eTSsKEyPEJhBt5p8wlx9pIR8-metaa2FyaW5hLmpwZw==-.jpg",
+                        "caption": "sadasdas"
+                    },
+                    {
+                        "id": "md87tw44uxude",
+                        "url": "https:\/\/selfietime.id\/storage\/715083\/Vfcer4eTSsKEyPEJhBt5p8wlx9pIR8-metaa2FyaW5hLmpwZw==-.jpg",
+                        "caption": "asdsadw"
+                    }
+                ]
+            },
+            {
+                "id": "md87u0v0or3ft",
+                "type": "note",
+                "title": "fsafsaf",
+                "content": "safsafsa fsafawf wfqw fqwfqwf "
+            }
+        ],
+        "status": "published",
+        "published_at": "2025-07-18T02:44:44.284Z",
+        "created_at": "2025-07-18 09:44:45",
+        "edited_at": "2025-07-18 09:44:45",
+        "category": "hehe"
+    },
+    {
+        "id": 9,
+        "author_id": 1,
+        "author_username": "admin",
+        "author_display_name": "Tian",
+        "author_profile_picture": "https:\/\/i.pinimg.com\/736x\/1f\/0a\/64\/1f0a64973d9be906f4f8f0892ecd8afd.jpg",
+        "title": "awdwqd",
+        "slug": "awdwqd",
+        "synopsis": "wdqwd",
+        "thumbnail_url": "",
+        "thumbnail_caption": "",
+        "content_blocks": [],
+        "status": "draft",
+        "published_at": null,
+        "created_at": "2025-07-18 12:19:21",
+        "edited_at": "2025-07-18 12:19:21",
+        "category": "Uncategorized"
+    },
+    {
+        "id": 10,
+        "author_id": 1,
+        "author_username": "admin",
+        "author_display_name": "Tian",
+        "author_profile_picture": "https:\/\/i.pinimg.com\/736x\/1f\/0a\/64\/1f0a64973d9be906f4f8f0892ecd8afd.jpg",
+        "title": "rtet",
+        "slug": "rtet",
+        "synopsis": "ertert",
+        "thumbnail_url": "",
+        "thumbnail_caption": "reter",
+        "content_blocks": [],
+        "status": "draft",
+        "published_at": null,
+        "created_at": "2025-07-18 15:38:04",
+        "edited_at": "2025-07-18 15:38:04",
+        "category": "Contoh"
+    },
+    {
+        "id": 11,
+        "author_id": 1,
+        "author_username": "admin",
+        "author_display_name": "Tian",
+        "author_profile_picture": "https:\/\/i.pinimg.com\/736x\/1f\/0a\/64\/1f0a64973d9be906f4f8f0892ecd8afd.jpg",
+        "title": "123",
+        "slug": "123",
+        "synopsis": "12312312",
+        "thumbnail_url": "https:\/\/cnc-magazine.oramiland.com\/parenting\/images\/winter-aespa.width-800.format-webp.webp",
+        "thumbnail_caption": "reter",
+        "content_blocks": [
+            {
+                "id": "md8ksrby6i85w",
+                "type": "paragraph",
+                "content": "contoh saja dulu <b>adadad <\/b>sadasdwdwa<i> fsafsafsa esfef&nbsp; ef fef&nbsp;&nbsp;<\/i><a href=\"https:\/\/www.google.com\" style=\"font-style: italic;\">Link<\/a><i>&nbsp;gtrtertetwegdfgdfgr rg reg rg gre gregre gre&nbsp;<\/i><u style=\"\"><i>&nbsp;regrereg&nbsp;<\/i>&nbsp;gregergreg&nbsp;<\/u>&nbsp;regre"
+            },
+            {
+                "id": "md8kw092apoe6",
+                "type": "image",
+                "url": "",
+                "caption": ""
+            },
+            {
+                "id": "md8kwa6e8dox2",
+                "type": "blockquote",
+                "quote": "",
+                "author": ""
+            },
+            {
+                "id": "md8lgmcer8qfd",
+                "type": "paragraph",
+                "content": "ewfwefwe fwe f wefwe fwe few few fw&nbsp; sdwdq w"
+            }
+        ],
+        "status": "published",
+        "published_at": "2025-07-18 16:04:59",
+        "created_at": "2025-07-18 15:50:34",
+        "edited_at": "2025-07-18 16:26:58",
+        "category": "Contoh",
+        "post_url": "\/blog\/i\/123.html"
+    },
+    {
+        "id": 12,
+        "author_id": 1,
+        "author_username": "admin",
+        "author_display_name": "Tian",
+        "author_profile_picture": "https:\/\/i.pinimg.com\/736x\/1f\/0a\/64\/1f0a64973d9be906f4f8f0892ecd8afd.jpg",
+        "title": "contoh url yang sudah benar",
+        "slug": "contoh-url-yang-sudah-benar",
+        "synopsis": "fasfasfasfasfas",
+        "thumbnail_url": "",
+        "thumbnail_caption": "",
+        "content_blocks": [
+            {
+                "id": "md8ngknfuahwn",
+                "type": "paragraph",
+                "content": "saffa"
+            }
+        ],
+        "status": "draft",
+        "published_at": null,
+        "created_at": "2025-07-18 17:02:01",
+        "edited_at": "2025-07-18 17:02:01",
+        "category": "Uncategorized"
+    },
+    {
+        "id": 13,
+        "author_id": 1,
+        "author_username": "admin",
+        "author_display_name": "Tian",
+        "author_profile_picture": "https:\/\/i.pinimg.com\/736x\/1f\/0a\/64\/1f0a64973d9be906f4f8f0892ecd8afd.jpg",
+        "title": "oke kita coba",
+        "slug": "oke-kita-coba",
+        "synopsis": "qweqweqwe",
+        "thumbnail_url": "",
+        "thumbnail_caption": "",
+        "content_blocks": [
+            {
+                "id": "md8nlafv0fmy7",
+                "type": "paragraph",
+                "content": "awdwadwqadawd"
+            }
+        ],
+        "status": "draft",
+        "published_at": null,
+        "created_at": "2025-07-18 17:05:41",
+        "edited_at": "2025-07-18 17:10:53",
+        "category": "Uncategorized",
+        "post_url": "\/blog\/i\/oke-kita-coba.html"
+    },
+    {
+        "id": 14,
+        "author_id": 1,
+        "author_username": "admin",
+        "author_display_name": "Tian",
+        "author_profile_picture": "https:\/\/i.pinimg.com\/736x\/1f\/0a\/64\/1f0a64973d9be906f4f8f0892ecd8afd.jpg",
+        "title": "fsdfsdfs ",
+        "slug": "fsdfsdfs",
+        "synopsis": "few fwe fwe f",
+        "thumbnail_url": "ew f wef ",
+        "thumbnail_caption": "ewfwe fwef ",
+        "content_blocks": [
+            {
+                "id": "md8ntv022aeuz",
+                "type": "paragraph",
+                "content": "&nbsp;efwef wfe ewf ewf wef efw"
+            }
+        ],
+        "status": "draft",
+        "published_at": null,
+        "created_at": "2025-07-18 17:12:25",
+        "edited_at": "2025-07-18 17:12:27",
+        "category": " wefew f ewf ",
+        "post_url": "\/blog\/i\/fsdfsdfs.html"
+    },
+    {
+        "id": 15,
+        "author_id": 1,
+        "author_username": "admin",
+        "author_display_name": "Tian",
+        "author_profile_picture": "https:\/\/i.pinimg.com\/736x\/1f\/0a\/64\/1f0a64973d9be906f4f8f0892ecd8afd.jpg",
+        "title": "Melihat dunia, menemukan diri",
+        "slug": "melihat-dunia-menemukan-diri",
+        "synopsis": "Saat hidup terasa berat, kita sering terperangkap dalam diri sendiri. Ada kekuatan yang bisa ditemukan saat kita keluar, mengamati dunia.",
+        "thumbnail_url": "",
+        "thumbnail_caption": "",
+        "content_blocks": [
+            {
+                "id": "md8wnxoi3zds0",
+                "type": "paragraph",
+                "content": "Di tengah riuhnya tuntutan dan ekspektasi, seringkali aku merasa terhimpit. Beban di pundak terasa begitu nyata, seolah setiap langkah adalah perjuangan yang tak berujung. Ada kalanya, aku hanya ingin menyerah, bersembunyi dari hiruk pikuk dunia yang seolah menuntutku untuk selalu kuat, selalu benar, dan tak pernah goyah."
+            },
+            {
+                "id": "md8wp1533i47c",
+                "type": "paragraph",
+                "content": "<div>Dalam keheningan pikiranku, masalah-masalah kecil menjelma raksasa, menguasai setiap sudut pandang hingga rasanya tak ada celah untuk bernapas.<\/div><div>Namun, entah mengapa, ada dorongan lembut yang membisikiku untuk keluar. Bukan untuk mencari jawaban, bukan pula untuk melarikan diri, tapi sekadar untuk mengamati. Dan di sanalah, di antara keramaian yang asing, aku menemukan sebuah cermin yang berbeda.<\/div>"
+            },
+            {
+                "id": "md8wv2kg7sdfn",
+                "type": "image",
+                "url": "https:\/\/encrypted-tbn0.gstatic.com\/images?q=tbn:ANd9GcSlI5cTDYWyaZKonMm2PuB6ck0uzkHM9KR2t72rY2MNDKJuIxSpMFdRtyE&s=10",
+                "caption": "Nenek Berjualan"
+            },
+            {
+                "id": "md8wynqx6d7ub",
+                "type": "paragraph",
+                "content": "Aku melihat seorang ibu tua, dengan punggung membungkuk, menjajakan dagangannya di bawah terik matahari. Senyumnya merekah saat seorang pembeli menghampiri, seolah lelahnya lenyap begitu saja. Aku melihat seorang anak kecil, dengan sepatu usang, berlarian riang mengejar layang-layang di lapangan, tawanya lepas tanpa beban. Mereka tidak meminta bintang, tidak pula mengeluh tentang langit yang mendung. Mereka hanya ada, berjuang, dan menemukan kebahagiaan dalam kesederhanaan yang seringkali luput dari pandanganku."
+            },
+            {
+                "id": "md8wz8h3ewzco",
+                "type": "paragraph",
+                "content": "Pada mereka, aku melihat ketangguhan yang tak pernah aku bayangkan. Pada senyum mereka, aku menemukan kekuatan yang tak pernah aku kira. Mereka adalah pengingat bahwa kesulitan itu ada, nyata, tapi bagaimana kita menghadapinya, itu adalah pilihan. Bahwa menjadi lemah bukanlah bentuk kekalahan, melainkan bentuk paling jujur dari bertahan."
+            },
+            {
+                "id": "md8wzuepeggct",
+                "type": "paragraph",
+                "content": "<div>Terima kasih, dunia, karena telah menjadi saksi bisu dari kerapuhanku. Kau membiarkanku tenggelam bila perlu, bukan karena kau tak peduli, tapi karena kau percaya, beberapa laut harus kudalami sendiri. Dan kau akan tetap di pantai, menunggu selesai, lalu melambai.<\/div><div>Semoga di sela-sela sabarnya jiwaku, ada bunga yang harumnya pantas untuk kuhirup, menenangkanku dari manusia separuh riuh sepertiku.&nbsp;<\/div>"
+            },
+            {
+                "id": "md8x07hijvgg6",
+                "type": "blockquote",
+                "quote": "Semoga aku dikelilingi oleh cinta yang lembut, dan semoga, pengirim cinta itu adalah aku.",
+                "author": "Unknown"
+            }
+        ],
+        "status": "published",
+        "published_at": "2025-07-18 21:29:45",
+        "created_at": "2025-07-18 21:20:58",
+        "edited_at": "2025-07-18 21:29:45",
+        "category": "Advice",
+        "post_url": "\/blog\/i\/melihat-dunia-menemukan-diri.html"
+    }
+]

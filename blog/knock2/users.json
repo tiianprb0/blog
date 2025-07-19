@@ -1,0 +1,15 @@
+[
+    {
+        "id": 1,
+        "username": "admin",
+        "email": "tiianprb@gmail.com",
+        "password": "$2y$10$zaIYsfyAGgtWBXztcLtY7.0g1chfdZ9PT5PddVsANjUJ3lkbyK38y",
+        "created_at": "2025-07-16 17:17:15",
+        "is_admin": false,
+        "can_write_post": true,
+        "display_name": "Tian",
+        "profile_picture": "https:\/\/i.pinimg.com\/736x\/1f\/0a\/64\/1f0a64973d9be906f4f8f0892ecd8afd.jpg",
+        "date_of_birth": "2001-06-10",
+        "bio": "test"
+    }
+]
